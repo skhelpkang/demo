@@ -102,5 +102,10 @@
   },
   "devDependencies": {
     "babel-plugin-transform-function-bind": "^6.22.0"
+  },
+  "proxy": {
+    "/src/*":{
+      "target": "http://10.250.55.157:8080/"
+    }
   }
 }
