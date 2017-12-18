@@ -1,21 +1,41 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
-}
+// JavaScript
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-export default App;
+import { browserHistory, Router, Route, IndexRoute, IndexRedirect } from 'react-router';
+import { Provider } from 'react-redux';
+import { syncHistoryWithStore } from 'react-router-redux';
+
+import store from './store';
+
+// Base
+import Layout from './layout/container/LayoutContainer';
+import PageNotFoundView from './common/view/PageNotFoundView';
+
+// Page
+import Sample from './sample/container/SampleContainer';
+
+
+
+const history = syncHistoryWithStore(browserHistory, store);
+
+export default () => (
+  <Provider store={store}>
+    <Router history={history}>
+      <Route path={"/"} component={Layout} >
+
+        <IndexRedirect to="sample"/>
+
+        <Route path="sample" component={Sample} />
+
+        <Route path="menus/:menuName" >
+          <IndexRoute component={Sample} />
+        </Route>
+
+      </Route>
+
+      <Route path="*" component={PageNotFoundView} />
+    </Router>
+  </Provider>
+)
