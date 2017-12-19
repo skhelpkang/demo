@@ -11,13 +11,12 @@ import store from './store';
 const history = syncHistoryWithStore(browserHistory, store);
 
 // Base
-import PageNotFoundView from './common/view/PageNotFoundView';
+import PageNotFoundView from './layout/view/PageNotFoundView';
 
 //route
 import ms1Route from './ms1/ms1Route';
 
 
-{/* <Redirect to= '/ms1/sample' /> */}
 const routes = {
   path: '/',
   exat: true,

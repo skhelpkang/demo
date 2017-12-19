@@ -1,7 +1,3 @@
-
-import naraFetch from '../../../common/nara/naraFetch';
-
-
 const basePath = '/sample/users';
 
 const users = [
@@ -14,8 +10,7 @@ const users = [
 
 export default {
   //
-  findUser: (userId) =>
-    naraFetch.getJson(`${basePath}/userId`),
+  findUser: (userId) => naraFetch.getJson(`${basePath}/userId`),
 
   findUser_sample: async (userId) =>(
     users.find((user) => userId === user.id)
