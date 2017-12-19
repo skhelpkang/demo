@@ -1,15 +1,26 @@
 import { actionType } from '../reducer/menuReducer';
 
+const {
+  SET_ACTIVE_ITEM,
+  SET_ITEMS,
+} = actionType
 
-const menuAction = {
-  //
-  selectMenu(menuItemName) {
-    return {
-      type: actionType.SET_ACTIVE_ITEM,
-      payload: menuItemName,
-    };
-  },
-};
 
-export default { menuAction };
-export { menuAction };
+//
+function selectMenu(menuItemName) {
+  return {
+    type: SET_ACTIVE_ITEM,
+    payload: menuItemName,
+  }
+}
+
+function setMenu(menus) {
+  return {
+    type: SET_ITEMS,
+    payload: menus,
+  }
+}
+
+export default {
+  selectMenu, setMenu
+}

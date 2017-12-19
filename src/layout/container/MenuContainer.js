@@ -6,20 +6,11 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Menu, Select, Dropdown } from 'semantic-ui-react'
 
-import { userConst, userAction } from '../../user/action/userAction';
-import { menuAction } from '../action/menuAction';
+import userAction, { userConst } from '../../ms1/user/action/userAction';
+import  menuAction from '../action/menuAction';
 
 
 class MenuContainer extends Component {
-  //
-  static menuItems = [
-    { name: 'AdminMenu1', text: 'AdminMenu1',  role: 'Admin', onClickName: 'routeToAdminMenu1' },
-    { name: 'AdminMenu2', text: 'AdminMenu2', role: 'Admin', onClickName: 'routeToAdminMenu2' },
-
-    { name: 'UserMenu1',  text: 'UserMenu1',    role: 'User', onClickName: 'routeToUserMenu1' },
-    { name: 'UserMenu2',   text: 'UserMenu2',     role: 'User', onClickName: 'routeToUserMenu2' },
-  ];
-
 
   constructor(props) {
     //
@@ -62,13 +53,13 @@ class MenuContainer extends Component {
 
   routeToMenuPage(e, { name }) {
     //
-    this.props.router.push(`/menus/${name}`);
+    this.props.router.push(`/ms1/menus/${name}`);
   }
 
 
   render() {
     //
-    const { activeItem, users, user } = this.props;
+    const { menuItems, activeItem, users, user } = this.props;
 
     if (!user) {
       return null;
@@ -77,7 +68,7 @@ class MenuContainer extends Component {
     return (
       <Menu>
         <Menu.Item color="blue" icon="home" onClick={this.routeToHome}/>
-        { MenuContainer.menuItems.map((menuItem, index) => {
+        { menuItems.map((menuItem, index) => {
           if (user.roles.includes(menuItem.role)) {
             return (
               <Menu.Item
@@ -112,6 +103,7 @@ class MenuContainer extends Component {
 const mapStateToProps = ({ menuState, userState }) => {
   return {
     activeItem: menuState.activeItem,
+    menuItems: menuState.items,
     users: userState.users,
     user: userState.user,
   };

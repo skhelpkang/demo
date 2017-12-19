@@ -1,5 +1,5 @@
 
-import naraFetch from '../../common/nara/naraFetch';
+import naraFetch from '../../../common/nara/naraFetch';
 
 
 const basePath = '/sample/users';
@@ -12,16 +12,14 @@ const users = [
 ];
 
 
-const api = {
+export default {
   //
   findUser: (userId) =>
     naraFetch.getJson(`${basePath}/userId`),
 
-  findUser_sample: (userId) =>
-    Promise.resolve(users.find((user) => userId === user.id)),
+  findUser_sample: async (userId) =>(
+    users.find((user) => userId === user.id)
+  ),
 
-  findAllUsers_sample: () =>
-    Promise.resolve(users),
-};
-
-export default api
+  findAllUsers_sample: async() =>users,
+}

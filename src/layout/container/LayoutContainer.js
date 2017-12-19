@@ -8,7 +8,7 @@ import { Container } from 'semantic-ui-react'
 
 import MenuContainer from "./MenuContainer";
 
-import { menuAction } from "../action/menuAction";
+import menuAction from "../action/menuAction";
 
 
 class LayoutContainer extends Component {
@@ -21,12 +21,12 @@ class LayoutContainer extends Component {
 
   // @Override
   componentDidMount() {
-    const currentUserId = this.props.params.userId;
+    // const currentUserId = this.props.params.userId;
 
-    if (currentUserId) {
-      const currentUser = this.props.users.find((user) => user.id === currentUserId);
-      this.props.userAction.selectCurrentUser(currentUser);
-    }
+    // if (currentUserId) {
+    //   const currentUser = this.props.users.find((user) => user.id === currentUserId);
+    //   this.props.userAction.selectCurrentUser(currentUser);
+    // }
   }
 
 

@@ -8,41 +8,31 @@ const actionType = {
 };
 
 const initialState = {
-  //
-  sampleContent: null,
+  title: null,
+  text: null,
 };
 
 
 function reducer(state = initialState, action) {
   //
-  return {
-    sampleContent: sampleReducer(state.sampleContent, action),
-  };
+  return sampleReducer(state, action)
+
 }
 
 
-function sampleReducer(sampleContentState, { type, payload }) {
-  //
+function sampleReducer(state, { type, payload }) {
   switch (type) {
     case actionType.SET_SAMPLE_CONTENT:
-      return payload.sampleContent;
-
+      return { ...state, ...payload }
     case actionType.SET_SAMPLE_TITLE:
-      return {
-        ...sampleContentState,
-        title: payload.sampleTitle,
-      };
-
+      return { ...state, title: payload }
     case actionType.SET_SAMPLE_TEXT:
-      return {
-        ...sampleContentState,
-        text: payload.sampleText,
-      };
-
+      return { ...state, text: payload }
     default:
-      return sampleContentState;
+      return state;
   }
 }
+
 
 export default reducer;
 export { actionType, reducer };

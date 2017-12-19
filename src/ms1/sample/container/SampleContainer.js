@@ -4,7 +4,7 @@ import autoBind from 'react-autobind';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { sampleAction } from '../action/sampleAction';
+import sampleAction  from '../action/sampleAction';
 import Sample from '../view/SampleView';
 
 
@@ -40,16 +40,13 @@ class SampleContainer extends Component {
 
   render() {
     //
-    const { sampleContent } = this.props;
-
-    if (!sampleContent) {
-      return null;
-    }
-
+    const { sampleState } = this.props;
+    const {title, text} = sampleState
+    if(!title) return null
     return (
       <Sample
-        title={sampleContent.title}
-        text={sampleContent.text}
+        title={title}
+        text={text}
       />
     );
   }
@@ -57,7 +54,7 @@ class SampleContainer extends Component {
 
 const mapStateToProps = ({ sampleState }) => {
   return {
-    sampleContent: sampleState.sampleContent,
+    sampleState,
   };
 };
 

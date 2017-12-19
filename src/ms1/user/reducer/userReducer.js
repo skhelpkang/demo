@@ -22,25 +22,25 @@ function reducer(state = initialState, action) {
 }
 
 
-function userReducer(userState, { type, payload }) {
+function userReducer(user, { type, payload }) {
   //
   switch (type) {
     case actionType.SET_USER:
-      return payload.user;
+      return payload;
 
     default:
-      return userState;
+      return user;
   }
 }
 
-function usersReducer(usersState, { type, payload }) {
+function usersReducer(users, { type, payload }) {
   //
   switch (type) {
     case actionType.SET_USERS:
-      return payload.users;
+      return payload;
 
     default:
-      return usersState;
+      return users;
   }
 }
 
