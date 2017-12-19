@@ -1,18 +1,17 @@
 
-import { actionType } from '../reducer/sampleReducer';
 import sampleApi from '../api/sampleApi';
 
-const {
+import actionType from "../reducer/sampleActionType"
+
+const  {
   SET_SAMPLE_CONTENT,
   SET_SAMPLE_TITLE,
   SET_SAMPLE_TEXT,
 } = actionType
 
 
-
-//
 function findSampleContent(pageName) {
-  //
+
   return async (dispatch) => {
     const sampleContent = await sampleApi.findSampleContent(pageName)
     dispatch({
@@ -24,7 +23,7 @@ function findSampleContent(pageName) {
 }
 
 function setSampleTitle(sampleTitle) {
-  //
+
   return {
     type: SET_SAMPLE_TITLE,
     payload: {
@@ -34,7 +33,7 @@ function setSampleTitle(sampleTitle) {
 }
 
 function setSampleText(sampleText) {
-  //
+
   return {
     type: SET_SAMPLE_TEXT,
     payload: {
@@ -43,11 +42,8 @@ function setSampleText(sampleText) {
   };
 }
 
-
 export default { 
   findSampleContent, 
   setSampleTitle,  
   setSampleText,
 }
-
-export { sampleAction }

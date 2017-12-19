@@ -3,7 +3,6 @@ const content = {
   text: 'This is a react sample page.',
 };
 
-
 //
 function findSampleContent(pageName) {
   return {

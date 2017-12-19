@@ -1,9 +1,9 @@
-const actionType = {
-  //
-  SET_ACTIVE_ITEM: 'menu.setActiveItem',
-  SET_ITEMS: 'menu.setItems',
+import actionType from "./menuActionType"
 
-};
+const {
+  SET_ACTIVE_ITEM,
+  SET_ITEMS,
+} = actionType
 
 const initialState = {
   //
@@ -51,4 +51,3 @@ function menuReducer(items, { type, payload }) {
 
 
 export default reducer;
-export { actionType };

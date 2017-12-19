@@ -1,10 +1,9 @@
+import actionType from "./userActionType"
 
-
-const actionType = {
-  //
-  SET_USER: 'user.setUser',
-  SET_USERS: 'user.setUsers',
-};
+const {
+  SET_USER,
+  SET_USERS,
+} = actionType
 
 const initialState = {
   //
@@ -25,7 +24,7 @@ function reducer(state = initialState, action) {
 function userReducer(user, { type, payload }) {
   //
   switch (type) {
-    case actionType.SET_USER:
+    case SET_USER:
       return payload;
 
     default:
@@ -36,7 +35,7 @@ function userReducer(user, { type, payload }) {
 function usersReducer(users, { type, payload }) {
   //
   switch (type) {
-    case actionType.SET_USERS:
+    case SET_USERS:
       return payload;
 
     default:
@@ -46,4 +45,3 @@ function usersReducer(users, { type, payload }) {
 
 
 export default reducer;
-export { actionType, reducer };

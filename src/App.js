@@ -13,7 +13,10 @@ const history = syncHistoryWithStore(browserHistory, store);
 // Base
 import PageNotFoundView from './common/view/PageNotFoundView';
 
-import ms1Routes from './ms1/ms1Routes';
+//route
+import ms1Route from './ms1/ms1Route';
+
+
 {/* <Redirect to= '/ms1/sample' /> */}
 const routes = {
   path: '/',
@@ -22,7 +25,7 @@ const routes = {
     onEnter: (nextState, replace) => replace(`${nextState.location.pathname}ms1/sample`)
   },
   childRoutes: [
-    ms1Routes,
+    ms1Route,
     {
       path: '*',
       component: PageNotFoundView,

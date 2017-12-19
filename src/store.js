@@ -4,19 +4,17 @@ import { routerReducer } from 'react-router-redux';
 import thunk from 'redux-thunk';
 
 import menuReducer from './layout/reducer/menuReducer';
-import userReducer from './ms1/user/reducer/userReducer';
 
-import sampleReducer from './ms1/sample/reducer/sampleReducer';
-
+import ms1Store from "./ms1/ms1Store"
 
 const rootReducer = combineReducers({
   //
   routing: routerReducer,
 
   menuState: menuReducer,
-  userState: userReducer,
 
-  sampleState: sampleReducer,
+  ...ms1Store,
+  
 });
 
 

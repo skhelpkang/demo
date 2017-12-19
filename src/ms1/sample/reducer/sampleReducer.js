@@ -1,11 +1,10 @@
+import actionType from "./sampleActionType"
 
-
-const actionType = {
-  //
-  SET_SAMPLE_CONTENT: 'sample.setSampleContent',
-  SET_SAMPLE_TITLE: 'sample.setSampleTitle',
-  SET_SAMPLE_TEXT: 'sample.setSampleText',
-};
+const {
+  SET_SAMPLE_CONTENT,
+  SET_SAMPLE_TITLE,
+  SET_SAMPLE_TEXT,
+} = actionType
 
 const initialState = {
   title: null,
@@ -22,17 +21,15 @@ function reducer(state = initialState, action) {
 
 function sampleReducer(state, { type, payload }) {
   switch (type) {
-    case actionType.SET_SAMPLE_CONTENT:
+    case SET_SAMPLE_CONTENT:
       return { ...state, ...payload }
-    case actionType.SET_SAMPLE_TITLE:
+    case SET_SAMPLE_TITLE:
       return { ...state, title: payload }
-    case actionType.SET_SAMPLE_TEXT:
+    case SET_SAMPLE_TEXT:
       return { ...state, text: payload }
     default:
       return state;
   }
 }
 
-
-export default reducer;
-export { actionType, reducer };
+export default reducer

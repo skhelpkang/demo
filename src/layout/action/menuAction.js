@@ -1,4 +1,4 @@
-import { actionType } from '../reducer/menuReducer';
+import actionType from '../reducer/menuActionType';
 
 const {
   SET_ACTIVE_ITEM,
