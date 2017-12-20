@@ -1,35 +1,35 @@
 
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import autoBind from 'react-autobind';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import autoBind from 'react-autobind'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import { Menu, Select, Dropdown } from 'semantic-ui-react'
 
-import userAction, { userConst } from '../../ms1/user/action/userAction';
-import  menuAction from '../action/menuAction';
+import userAction, { userConst } from '../../../ms1/user/action/userAction'
+import  menuAction from '../action/menuAction'
 
 
 class MenuContainer extends Component {
 
   constructor(props) {
     //
-    super(props);
-    autoBind(this);
+    super(props)
+    autoBind(this)
   }
 
 
   // @Override
   componentDidMount() {
     //
-    const userId = 'admin';
-    const { params } = this.props;
+    const userId = 'admin'
+    const { params } = this.props
 
-    this.props.userAction.findAllUsers();
-    this.props.userAction.findUser(userId);
+    this.props.userAction.findAllUsers()
+    this.props.userAction.findUser(userId)
 
     if (params.menuName) {
-      this.props.menuAction.selectMenu(params.menuName);
+      this.props.menuAction.selectMenu(params.menuName)
     }
   }
 
@@ -37,32 +37,27 @@ class MenuContainer extends Component {
   componentWillReceiveProps(nextProps) {
     //
     if (this.props.params.menuName !== nextProps.params.menuName) {
-      this.props.menuAction.selectMenu(nextProps.params.menuName);
+      this.props.menuAction.selectMenu(nextProps.params.menuName)
     }
   }
 
 
 
   onChangeUser(e, { value }) {
-    this.props.userAction.findUser(value);
+    this.props.userAction.findUser(value)
   }
 
   routeToHome() {
-    this.props.router.push('/');
-  }
-
-  routeToMenuPage(e, { name }) {
-    //
-    this.props.router.push(`/ms1/menus/${name}`);
+    this.props.router.push('/')
   }
 
 
   render() {
     //
-    const { menuItems, activeItem, users, user } = this.props;
+    const { menuItems, activeItem, users, user } = this.props
 
     if (!user) {
-      return null;
+      return null
     }
 
     return (
@@ -75,11 +70,11 @@ class MenuContainer extends Component {
                 key={index}
                 name={menuItem.name}
                 active={activeItem === menuItem.name}
-                onClick={this.routeToMenuPage}
+                onClick={()=>this.props.router.push(menuItem.link)}
               >
                 {menuItem.text}
               </Menu.Item>
-            );
+            )
           }
         })}
 
@@ -95,7 +90,7 @@ class MenuContainer extends Component {
           </Menu.Item>
         </Menu.Menu>
       </Menu>
-    );
+    )
   }
 }
 
@@ -106,14 +101,14 @@ const mapStateToProps = ({ menuState, userState }) => {
     menuItems: menuState.items,
     users: userState.users,
     user: userState.user,
-  };
-};
+  }
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
     menuAction: bindActionCreators(menuAction, dispatch),
     userAction: bindActionCreators(userAction, dispatch),
-  };
-};
+  }
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(MenuContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(MenuContainer)

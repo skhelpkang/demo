@@ -1,5 +1,5 @@
 
-import sampleApi from '../api/sampleApi';
+import sampleApi from '../api/sampleApi'
 
 import actionType from "../reducer/sampleActionType"
 
@@ -17,7 +17,7 @@ function findSampleContent(pageName) {
     dispatch({
       type: SET_SAMPLE_CONTENT,
       payload: sampleContent,
-    });
+    })
   }
 
 }
@@ -29,7 +29,7 @@ function setSampleTitle(sampleTitle) {
     payload: {
       sampleTitle: sampleTitle,
     },
-  };
+  }
 }
 
 function setSampleText(sampleText) {
@@ -39,7 +39,7 @@ function setSampleText(sampleText) {
     payload: {
       sampleText: sampleText,
     },
-  };
+  }
 }
 
 export default { 

@@ -9,7 +9,7 @@ const {
 const initialState = {
   title: null,
   text: null,
-};
+}
 
 
 function reducer(state = initialState, action) {
@@ -28,7 +28,7 @@ function sampleReducer(state, { type, payload }) {
     case SET_SAMPLE_TEXT:
       return { ...state, text: payload }
     default:
-      return state;
+      return state
   }
 }
 

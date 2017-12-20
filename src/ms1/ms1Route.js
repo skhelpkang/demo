@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react';
+import React, { Fragment } from 'react'
 
-import { Route, IndexRoute, IndexRedirect } from 'react-router';
+import { Route, IndexRoute, IndexRedirect } from 'react-router'
 
-import Layout from '../layout/container/LayoutContainer';
+import Layout from '../common/layout/container/LayoutContainer'
 
-import Sample from './sample/container/SampleContainer';
+import Sample from './sample/container/SampleContainer'
 
 const sampleRoute = {
     path: 'sample',

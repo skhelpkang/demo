@@ -5,7 +5,7 @@ const {
   SET_USERS,
 } = actionType
 
-import userApi from '../api/userApi';
+import userApi from '../api/userApi'
 
 
 function findUser(userId) {

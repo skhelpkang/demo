@@ -1,20 +1,16 @@
+import React from 'react'
 
-// JavaScript
-import React, { Fragment } from 'react';
+import { browserHistory, Router, Route, IndexRoute, IndexRedirect, Redirect } from 'react-router'
+import { Provider, } from 'react-redux'
+import { syncHistoryWithStore } from 'react-router-redux'
 
-import { browserHistory, Router, Route, IndexRoute, IndexRedirect, Redirect } from 'react-router';
-import { Provider, connect } from 'react-redux';
-import { syncHistoryWithStore } from 'react-router-redux';
+import store from './store'
 
-import store from './store';
-
-const history = syncHistoryWithStore(browserHistory, store);
-
-// Base
-import PageNotFoundView from './layout/view/PageNotFoundView';
+const history = syncHistoryWithStore(browserHistory, store)
 
 //route
-import ms1Route from './ms1/ms1Route';
+import ms1Route from './ms1/ms1Route'
+import commonRoute from './common/commonRoute'
 
 
 const routes = {
@@ -25,10 +21,10 @@ const routes = {
   },
   childRoutes: [
     ms1Route,
-    {
-      path: '*',
-      component: PageNotFoundView,
-    },
+    // 업무 라우터 추가
+
+
+    commonRoute,
   ]
 }
 
