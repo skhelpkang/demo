@@ -2,23 +2,23 @@ import React, { Fragment } from 'react'
 
 import { Route, IndexRoute, IndexRedirect } from 'react-router'
 
-import Layout from '../common/layout/container/LayoutContainer'
+import LayoutContainer from '../common/layout/container/LayoutContainer'
 
-import Sample from './sample/container/SampleContainer'
+import SampleContainer from './sample/container/SampleContainer'
 
 const sampleRoute = {
     path: 'sample',
-    component: Sample,
+    component: SampleContainer,
 }
 
 const menuRoute = {
     path: 'menus/:menuName',
-    component: Sample,
+    component: SampleContainer,
 }
 
 export default {
     path: '/ms1',
-    component: Layout,
+    component: LayoutContainer,
     childRoutes: [
         sampleRoute,
         menuRoute,

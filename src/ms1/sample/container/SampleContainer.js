@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import sampleAction  from '../action/sampleAction'
-import Sample from '../view/SampleView'
+import SampleView from '../view/SampleView'
 
 
 class SampleContainer extends Component {
@@ -44,7 +44,7 @@ class SampleContainer extends Component {
     const {title, text} = sampleState
     if(!title) return null
     return (
-      <Sample
+      <SampleView
         title={title}
         text={text}
       />

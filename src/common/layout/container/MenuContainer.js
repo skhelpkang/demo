@@ -28,7 +28,7 @@ class MenuContainer extends Component {
     this.props.userAction.findAllUsers()
     this.props.userAction.findUser(userId)
 
-    if (params.menuName) {
+    if (params && params.menuName) {
       this.props.menuAction.selectMenu(params.menuName)
     }
   }
