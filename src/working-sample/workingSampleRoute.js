@@ -5,10 +5,15 @@ import { Route, IndexRoute, IndexRedirect } from 'react-router'
 import LayoutContainer from '../common/layout/container/LayoutContainer'
 
 import SampleContainer from './sample/container/SampleContainer'
+import SampleListContainer from './sample/container/SampleListContainer'
 
 const sampleRoute = {
     path: 'sample',
     component: SampleContainer,
+}
+const sampleListRoute = {
+    path: 'sampleList',
+    component: SampleListContainer,
 }
 
 const menuRoute = {
@@ -17,10 +22,11 @@ const menuRoute = {
 }
 
 export default {
-    path: '/ms1',
+    path: '/workingSample',
     component: LayoutContainer,
     childRoutes: [
         sampleRoute,
         menuRoute,
+        sampleListRoute,
     ]
 }

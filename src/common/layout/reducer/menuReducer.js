@@ -10,11 +10,13 @@ const initialState = {
   activeItem: null,
 
   items: process.env.NODE_ENV === 'production' ? [] : [
-    { name: 'AdminMenu1', text: 'AdminMenu1',  role: 'Admin',  link: '/ms1/menus/AdminMenu1', },
-    { name: 'AdminMenu2', text: 'AdminMenu2', role: 'Admin',  link: '/ms1/menus/AdminMenu2', },
+    { name: 'AdminMenu1', text: 'AdminMenu1',  role: 'Admin',  link: '/workingSample/menus/AdminMenu1', },
+    { name: 'AdminMenu2', text: 'AdminMenu2', role: 'Admin',  link: '/workingSample/menus/AdminMenu2', },
 
-    { name: 'UserMenu1',  text: 'UserMenu1',    role: 'User',  link: '/ms1/menus/UserMenu1', },
-    { name: 'UserMenu2',   text: 'UserMenu2',     role: 'User',  link: '/ms1/menus/UserMenu2', },
+    { name: 'UserMenu1',  text: 'UserMenu1',    role: 'User',  link: '/workingSample/menus/UserMenu1', },
+    { name: 'UserMenu2',  text: 'UserMenu2',    role: 'User',  link: '/workingSample/menus/UserMenu2', },
+
+    { name: 'sampleList',   text: 'sampleList',     role: 'User',  link: '/workingSample/sampleList', },
   ]
 };
 

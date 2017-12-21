@@ -3,7 +3,7 @@ import { routerReducer } from 'react-router-redux'
 import thunk from 'redux-thunk'
 
 
-import ms1Reducer from "./ms1/ms1Reducer"
+import workingSampleReducer from "./working-sample/workingSampleReducer"
 
 import commonReducer from "./common/commonReducer"
 
@@ -12,7 +12,7 @@ const rootReducer = combineReducers({
   routing: routerReducer,
   ...commonReducer,
 
-  ...ms1Reducer,
+  ...workingSampleReducer,
   //업무 리듀서 추가
   
 })

@@ -7,8 +7,21 @@ const  {
   SET_SAMPLE_CONTENT,
   SET_SAMPLE_TITLE,
   SET_SAMPLE_TEXT,
+  SET_SAMPLE_LIST,
 } = actionType
 
+
+function findSampleList(pageName) {
+
+  return async (dispatch) => {
+    const sampleContent = await sampleApi.findSampleList(pageName)
+    dispatch({
+      type: SET_SAMPLE_LIST,
+      payload: sampleContent,
+    })
+  }
+
+}
 
 function findSampleContent(pageName) {
 
@@ -22,7 +35,7 @@ function findSampleContent(pageName) {
 
 }
 
-function setSampleTitle(sampleTitle) {
+async function setSampleTitle(sampleTitle) {
 
   return {
     type: SET_SAMPLE_TITLE,
@@ -46,4 +59,5 @@ export default {
   findSampleContent, 
   setSampleTitle,  
   setSampleText,
+  findSampleList,
 }

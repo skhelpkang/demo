@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Menu, Select, Dropdown } from 'semantic-ui-react'
 
-import userAction, { userConst } from '../../../ms1/user/action/userAction'
+import userAction, { userConst } from '../../../working-sample/user/action/userAction'
 import  menuAction from '../action/menuAction'
 
 
