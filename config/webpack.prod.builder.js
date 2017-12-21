@@ -9,7 +9,7 @@ const buildCommon = require('./webpack.common.builder.js');
 
 const constant = {
   WORK_DIR: 'app',
-  OUTPUT_PATH: path.join(process.cwd(), '..', 'dist', 'app'),
+  OUTPUT_PATH: path.join(process.cwd(), 'build'),
 };
 
 
@@ -20,7 +20,7 @@ function build({ entry, additionalExternals }, {}) {
   const config = {
     output: {
       path: constant.OUTPUT_PATH,
-      publicPath: 'res/',
+      publicPath: '',
       filename: '[name].[hash].js',
       libraryTarget: 'window',
     },

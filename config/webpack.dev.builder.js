@@ -20,7 +20,7 @@ function build({ entry, additionalExternals }, { proxy, externalResources }) {
 
     output: {
       path: path.join(process.cwd(), './dist'),
-      filename: '[name][hash].js'
+      filename: '[name].[hash].js'
     },
 
     module: {

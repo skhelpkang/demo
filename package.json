@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "webpack-dev-server --config config/webpack.dev.js --inline --progress --port 8081",
-    "build_app": "webpack --config config/webpack.prod.js --progress --profile --bail"
+    "start": "webpack-dev-server --config config/webpack.dev.js --inline --progress --port 3000",
+    "build": "webpack --config config/webpack.prod.js --progress --profile --bail"
   },
   "dependencies": {
     "axios": "^0.17.1",
