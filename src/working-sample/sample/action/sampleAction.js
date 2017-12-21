@@ -45,7 +45,7 @@ async function setSampleTitle(sampleTitle) {
   }
 }
 
-function setSampleText(sampleText) {
+async function setSampleText(sampleText) {
 
   return {
     type: SET_SAMPLE_TEXT,
