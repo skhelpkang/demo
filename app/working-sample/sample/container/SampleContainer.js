@@ -4,7 +4,7 @@ import autoBind from 'react-autobind'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import sampleAction  from '../action/sampleAction'
+import sampleAction from '../action/sampleAction'
 import SampleView from '../view/SampleView'
 
 
@@ -17,36 +17,21 @@ class SampleContainer extends Component {
 
 
   // @Override
-  componentDidMount() {
-    //
-    this.init(this.props)
+  componentWillMount() {
+    const { props } = this
+    const { sampleId } = this.props.params
+    props.sampleAction.findSample(sampleId)
   }
-
-  // @Override
-  componentWillReceiveProps(nextProps) {
-    //
-    if (this.props.params.menuName !== nextProps.params.menuName) {
-      this.init(nextProps)
-    }
-  }
-
-  init(props) {
-    //
-    const pageName = props.params.menuName || ''
-
-    props.sampleAction.findSampleContent(pageName)
-  }
-
 
   render() {
-    //
-    const { sampleState } = this.props
-    const {title, text} = sampleState
-    if(!title) return null
+    const { sample } = this.props.sampleState
+    if (!sample) return null
+    const { sampleId, title, body } = sample
     return (
       <SampleView
-        title={title}
-        text={text}
+        {
+         ...{sampleId, title, body}
+       }
       />
     )
   }

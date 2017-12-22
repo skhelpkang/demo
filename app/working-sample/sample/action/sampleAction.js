@@ -4,9 +4,7 @@ import sampleApi from '../api/sampleApi'
 import actionType from "../reducer/sampleActionType"
 
 const  {
-  SET_SAMPLE_CONTENT,
-  SET_SAMPLE_TITLE,
-  SET_SAMPLE_TEXT,
+  SET_SAMPLE,
   SET_SAMPLE_LIST,
 } = actionType
 
@@ -14,50 +12,29 @@ const  {
 function findSampleList(pageName) {
 
   return async (dispatch) => {
-    const sampleContent = await sampleApi.findSampleList(pageName)
+    const sampleContents = await sampleApi.findSampleList(pageName)
     dispatch({
       type: SET_SAMPLE_LIST,
-      payload: sampleContent,
+      payload: sampleContents,
     })
   }
 
 }
 
-function findSampleContent(pageName) {
+function findSample(sampleId) {
 
   return async (dispatch) => {
-    const sampleContent = await sampleApi.findSampleContent(pageName)
+    const sampleContent = await sampleApi.findSample(sampleId)
     dispatch({
-      type: SET_SAMPLE_CONTENT,
+      type: SET_SAMPLE,
       payload: sampleContent,
     })
   }
 
 }
 
-async function setSampleTitle(sampleTitle) {
-
-  return {
-    type: SET_SAMPLE_TITLE,
-    payload: {
-      sampleTitle: sampleTitle,
-    },
-  }
-}
-
-async function setSampleText(sampleText) {
-
-  return {
-    type: SET_SAMPLE_TEXT,
-    payload: {
-      sampleText: sampleText,
-    },
-  }
-}
 
 export default { 
-  findSampleContent, 
-  setSampleTitle,  
-  setSampleText,
+  findSample, 
   findSampleList,
 }

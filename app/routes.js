@@ -5,7 +5,7 @@ export default {
   path: '/',
   exat: true,
   indexRoute: {
-    onEnter: (nextState, replace) => replace(`${nextState.location.pathname}workingSample/sample`)
+    onEnter: (nextState, replace) => replace('/workingSample/sampleList')
   },
   childRoutes: [
     workingSampleRoute,

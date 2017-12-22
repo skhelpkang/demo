@@ -24,12 +24,12 @@ class SampleListContainer extends Component {
 
   render() {
     //
-    const { sampleState } = this.props
-    const {list} = sampleState
-    if(!list || !list.content) return null;
+    const { sampleList } = this.props.sampleState
+    if(!sampleList) return null;
+    
     return (
       <SampleListView
-        list = {list.content}
+        list = {sampleList.content}
       />
     )
   }
