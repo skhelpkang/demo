@@ -23,7 +23,7 @@ export default class SampleListView extends Component {
         <Header as="h1">리스트</Header>
         {
           list.map(
-            sample => <Item {...sample} key={sample.sampleId} />
+            sample => <SampleItem {...sample} key={sample.sampleId} />
           )
         }
       </Container>
@@ -32,11 +32,10 @@ export default class SampleListView extends Component {
 }
 
 
-const Item = ({
+const SampleItem = ({
   sampleId,
   title,
   body,
-  router,
 }) => (
   <Card key={sampleId}
     onClick={() => history.push(`/workingSample/sample/${sampleId}`)}
