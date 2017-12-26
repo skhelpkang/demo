@@ -25,6 +25,9 @@ const childRoutes= [
 
 export default {
     path: '/workingSample',
+    indexRoute: {
+        onEnter: (nextState, replace) => replace('/workingSample/sampleList')
+    },
     component: LayoutContainer,
     childRoutes,
 }
